@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  sonarqube:
+    image: sonarqube:8.6.1-community
+    container_name: sonarqube-sonarqube-1
+    environment:
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
+      - SONARQUBE_JDBC_URL=${SONARQUBE_JDBC_URL}
+    volumes:
+      - $PWD/sonarqube_data
+      - $PWD/sonarqube_extensions
+      - $PWD/sonarqube_logs
+    ports:
+      - "9000:9000"
+      - "9092:9092"
+    networks:
+      - sonarqube_default
+    user: "1040:1040"
+    restart: always
+networks:
+  sonarqube_default:
+    driver: bridge
+
+volumes:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:
