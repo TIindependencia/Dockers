@@ -2,14 +2,13 @@ version: '3'
 services:
   jenkins:
     image: jenkins/jenkins:lts
-    user: root
     ports:
       - 8080:8080
       - 50000:50000
     volumes:
       - $PWD/jenkins_home:/var/jenkins_home
-      - $PWD//var/run/docker.sock:/var/run/docker.sock
-    restart: on-failure
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
 
 networks:
   net:
