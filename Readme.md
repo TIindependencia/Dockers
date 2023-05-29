@@ -8,6 +8,7 @@ docker exec -it -u root container bash te da acceso a superusuario
 * instalar sudo dentro de jenkins.
 * Entrar como root y agregar a jenkins a sudo
 * https://docs.docker.com/engine/install/debian/--> Instala docker en jenkins
+* Cmbiar password a usuario jenkins sudo passwd jenkins
 * sudo chmod 666 /var/run/docker.sock
 ### Asegurate de sincronizar el agente de docker de jenkins con el docker de tu maquina a traves de un volumen -->      - /var/run/docker.sock:/var/run/docker.sock
 ## 2.- Instalar Plugins
